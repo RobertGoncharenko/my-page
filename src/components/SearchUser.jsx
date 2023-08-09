@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import {useStore} from "../userStore";
-import  User  from "./User";
+import  ListGroupExample  from "./userList";
+import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import SplitButton from 'react-bootstrap/SplitButton';
 
 const UserSearch = () => {
+  // function SegmentedButtonDropdownsExample() {
+    
+      
 
   const { users, handleSortOrder, handleSearch, sortField, handleSortByField, sortOrder } = useStore();
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,8 +31,26 @@ const UserSearch = () => {
   }
 
   return (
-    <div>
-      <input 
+    // <div>
+    <>
+    <InputGroup className="mb-3 d-flex justify-content-center">
+        <Form.Control  
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          className="input-lg"
+        />
+        <SplitButton
+          variant="outline-secondary"
+          title="Action"
+          id="segmented-button-dropdown-2"
+          alignRight
+        >
+          <Dropdown.Item value="name">Name</Dropdown.Item>
+          <Dropdown.Item value="phone">Number</Dropdown.Item>
+          <Dropdown.Item value="email">E-Mail</Dropdown.Item>
+        </SplitButton>
+      
+      {/* <input 
           type='text'
           value={searchTerm}
           onChange={handleSearchInputChange}
@@ -40,15 +65,17 @@ const UserSearch = () => {
            <option value="name" >Name</option>
            <option value="phone" >Number</option>
            <option value="email">E-Mail</option>
-         </select>
-      
+         </select> */}
+      </InputGroup>
       <div>
         {users
           .filter(user => user.displayed === true)
-          .map(user => <User user={user} key={user.id} />)}
+          .map(user => <ListGroupExample user={user} key={user.id} />)}
       </div>
-    </div>
+    
+    {/* </div> */}
+    </>
   )
 };
-
+// export default SegmentedButtonDropdownsExample;
 export default UserSearch;
