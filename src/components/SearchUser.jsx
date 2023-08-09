@@ -38,12 +38,18 @@ const UserSearch = () => {
           aria-label="Default"
           aria-describedby="inputGroup-sizing-default"
           className="input-lg"
+          type='text'
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+          placeholder='поиск...'
         />
         <SplitButton
           variant="outline-secondary"
-          title="Action"
+          title={sortOrder === "asc" ? "A-Z":"Z-A"}
           id="segmented-button-dropdown-2"
           alignRight
+          onClick={handleSortOrderClick}
+          onChange={handleSortByFieldChange}
         >
           <Dropdown.Item value="name">Name</Dropdown.Item>
           <Dropdown.Item value="phone">Number</Dropdown.Item>
