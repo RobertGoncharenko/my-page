@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import {useStore} from "../userStore";
-import  ListGroupExample  from "./userList";
+import  User  from "./userList";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import SplitButton from 'react-bootstrap/SplitButton';
 
-const UserSearch = () => {
-  // function SegmentedButtonDropdownsExample() {
-    
-      
+const UserSearch = () => {    
 
   const { users, handleSortOrder, handleSearch, sortField, handleSortByField, sortOrder } = useStore();
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,7 +28,6 @@ const UserSearch = () => {
   }
 
   return (
-    // <div>
     <>
     <InputGroup className="mb-3 d-flex justify-content-center">
         <Form.Control  
@@ -55,33 +51,13 @@ const UserSearch = () => {
           <Dropdown.Item value="phone">Number</Dropdown.Item>
           <Dropdown.Item value="email">E-Mail</Dropdown.Item>
         </SplitButton>
-      
-      {/* <input 
-          type='text'
-          value={searchTerm}
-          onChange={handleSearchInputChange}
-          placeholder='поиск...'
-         />
-         <button onClick={handleSortOrderClick}>
-          {sortOrder === "asc" ? "A-Z":"Z-A"}</button>
-         <select  
-           onChange={handleSortByFieldChange}
-           style={{marginLeft: "10px"}}
-         >
-           <option value="name" >Name</option>
-           <option value="phone" >Number</option>
-           <option value="email">E-Mail</option>
-         </select> */}
       </InputGroup>
       <div>
         {users
           .filter(user => user.displayed === true)
-          .map(user => <ListGroupExample user={user} key={user.id} />)}
+          .map(user => <User user={user} key={user.id} />)}
       </div>
-    
-    {/* </div> */}
     </>
   )
 };
-// export default SegmentedButtonDropdownsExample;
 export default UserSearch;

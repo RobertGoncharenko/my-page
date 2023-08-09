@@ -2,7 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function ListGroupExample({user}) {
+function User ({user}) {
   return (
     <Card style={{ width: '18rem', marginBottom: '10px'}} bg="secondary">
       <ListGroup variant="flush">
@@ -14,7 +14,7 @@ function ListGroupExample({user}) {
   );
 }
 
-export default ListGroupExample;
+export default User;
 // const User = ({user}) =>  {
   
 //   return(
