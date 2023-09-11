@@ -1,30 +1,29 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import  React  from 'react';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+import MyModal from './MyModal';
 
-function Example() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function Navbar() {
   return (
-    <>
-      <Button variant="primary" onClick={handleShow} style={{marginRight: "400px"}}>
-        Launch
-      </Button>
+    <Nav variant="tabs" defaultActiveKey="/home">
+      <Nav.Item>
+        <Nav.Link>Search/sort user</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="active">Validation</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="disabled" disabled>
+          Disabled
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <MyModal/>
+      </Nav.Item>
+      
 
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas>
-    </>
+    </Nav>
   );
 }
 
-export default Example;
+export default Navbar;

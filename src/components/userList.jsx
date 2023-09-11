@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function User ({user}) {
   return (
-    <Card style={{ width: '18rem', marginBottom: '10px'}} bg="secondary">
+    <Card  style={{ width: '18rem', marginBottom: '10px', backgroundColor: 'unset'}} bg="secondary">
       <ListGroup variant="flush">
         <ListGroup.Item>Name: {user.name}</ListGroup.Item>
         <ListGroup.Item>Phone: {user.phone}</ListGroup.Item>

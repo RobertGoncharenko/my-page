@@ -112,6 +112,7 @@ const useStore = create(
         sortField: field,
       }));
     },
+    handleEmailInput: () => set()
   };
 },
 );
